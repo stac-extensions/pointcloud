@@ -1,4 +1,4 @@
-# Template Extension Specification
+# Point Cloud Extension
 
 - **Title:** Point Cloud
 - **Identifier:** https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json
