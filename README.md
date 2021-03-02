@@ -1,47 +1,56 @@
 # Template Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
-- **Scope:** Item, Collection
+- **Title:** Point Cloud
+- **Identifier:** https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json
+- **Field Name Prefix:** pc
+- **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @matthewhanson
 
-This is the place to add a short introduction.
+This document explains the fields of the Point Cloud Extension to a STAC Item, which allows STAC to more fully describe point cloud datasets. The 
+point clouds can come from either active or passive sensors, and data is frequently acquired using tools such as LiDAR or coincidence-matched imagery.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [Example](examples/example-autzen.json)
 - [JSON Schema](json-schema/schema.json)
 
-## Item Properties and Collection Fields
+## Item Properties fields
 
-| Field Name  | Type                      | Description |
-| ----------- | ------------------------- | ----------- |
-| new_field   | [XYZ Object](#xyz-object) | **REQUIRED**. Describe the required field... |
-| another_one | \[number]                 | Describe the field... |
+| Field Name    | Type                              | Description |
+| ------------- | --------------------------------- | ----------- |
+| pc:count      | integer                           | **REQUIRED.** The number of points in the Item. |
+| pc:type       | string                            | **REQUIRED.** Phenomenology type for the point cloud. Possible valid values might include `lidar`, `eopc`, `radar`, `sonar`, or `other` |
+| pc:encoding   | string                            | **REQUIRED.** Content encoding or format of the data. |
+| pc:schemas    | [[Schema Object](#schema-object)] | **REQUIRED.** A sequential array of Items that define the dimensions and their types. |
+| pc:density    | number                            | Number of points per square unit area. |
+| pc:statistics | [[Stats Object](#stats-object)]   | A sequential array of Items mapping to `pc:schemas` defines per-channel statistics. |
 
-### Additional Field Information
+### Schema Object
 
-#### new_field
+A sequential array of Items that define the dimensions or channels of
+the point cloud, their types, and their sizes (in full bytes).
 
-This is a much more detailed description of the field `new_field`...
+| Field Name | Type    | Description |
+| ---------- | ------- | -------------------------- |
+| name       | string  | **REQUIRED.** The name of the dimension. |
+| size       | integer | **REQUIRED.** The size of the dimension in bytes. Whole bytes only are supported. |
+| type       | string  | **REQUIRED.** Dimension type. Valid values are `floating`, `unsigned`, and `signed` |
 
-### XYZ Object
+### Stats Object
 
-This is the introduction for the purpose and the content of the XYZ Object...
+A sequential array of Items mapping to `pc:schemas` defines per-channel statistics. The channel name is required and at least one statistic.
 
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
+| Field Name | Type    | Description |
+| ---------- | ------- | ----------- |
+| name       | string  | **REQUIRED.** The name of the channel. |
+| position   | integer | Position of the channel in the schema. |
+| average    | number  | The average of the channel. |
+| count      | integer | The number of elements in the channel. |
+| maximum    | number  | The maximum value of the channel. |
+| minimum    | number  | The minimum value of the channel. |
+| stddev     | number  | The standard deviation of the channel. |
+| variance   | number  | The variance of the channel. |
 
-## Relation types
+## Implementations
 
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+None yet, still in proposal stage.
