@@ -7,7 +7,8 @@
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @matthewhanson
 
-This document explains the fields of the Point Cloud Extension to a STAC Item, which allows STAC to more fully describe point cloud datasets. The 
+This document explains the Point Cloud Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) 
+specification. It adds fields to a STAC Item, to enable STAC to more fully describe point cloud datasets. The 
 point clouds can come from either active or passive sensors, and data is frequently acquired using tools such as LiDAR or coincidence-matched imagery.
 
 - Examples:
