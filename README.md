@@ -1,7 +1,7 @@
 # Point Cloud Extension
 
 - **Title:** Point Cloud
-- **Identifier:** https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json
+- **Identifier:** <https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json>
 - **Field Name Prefix:** pc
 - **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
