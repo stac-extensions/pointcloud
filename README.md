@@ -6,6 +6,7 @@
 - **Scope:** Item
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @matthewhanson
+- **History**: [Prior to March 2nd, 2021](https://github.com/radiantearth/stac-spec/tree/3a83d75aec7f16ae597ee9779777a97e83ff46a4/extensions/pointcloud)
 
 This document explains the Point Cloud Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC)
 specification. It adds fields to a STAC Item, to enable STAC to more fully describe point cloud datasets. The
