@@ -1,9 +1,16 @@
 {
-  "stac_version": "1.0.0-beta.2",
+  "stac_version": "1.0.0-rc.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/file/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json"
   ],
-  "assets": {},
+  "assets": {
+    "data": {
+      "href": "https://example.com/data/autzen/autzen-full.laz",
+      "role": [
+        "data"
+      ]
+    }
+  },
   "bbox": [
     -123.0755422,
     44.04971882,
@@ -42,7 +49,7 @@
   "id": "autzen-full.laz",
   "links": [
     {
-      "href": "/Users/hobu/dev/git/pdal/test/data/autzen/autzen-full.laz",
+      "href": "https://example.com/data/autzen/example-autzen.json",
       "rel": "self"
     }
   ],

@@ -1,89 +1,139 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/file/v1.0.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json#",
   "title": "Point Cloud Extension",
-  "description": "STAC Point Cloud Extension to a STAC Item",
-  "allOf": [
+  "description": "STAC Point Cloud Extension for STAC Items and STAC Collections.",
+  "oneOf": [
     {
-      "$ref": "#/definitions/item_type"
+      "$comment": "This is the schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "properties",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "properties": {
+              "allOf": [
+                {
+                  "$comment": "Require fields here for item properties.",
+                  "required": [
+                    "pc:count",
+                    "pc:type",
+                    "pc:encoding",
+                    "pc:schemas"
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/fields"
+                }
+              ]
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
     },
     {
-      "$ref": "#/definitions/pointcloud"
+      "$comment": "This is the schema for STAC Collections.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "const": "Collection"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$comment": "Remove this and the following object if this is not an extension to a Collection.",
+          "$ref": "#/definitions/stac_extensions"
+        },
+        {
+          "$ref": "#/definitions/fields"
+        }
+      ]
     }
   ],
   "definitions": {
-    "item_type": {
+    "stac_extensions": {
       "type": "object",
       "required": [
-        "type"
-      ],
-      "properties": {
-        "type": {
-          "type": "string",
-          "const": "Feature"
-        }
-      }
-    },
-    "pointcloud": {
-      "type": "object",
-      "required": [
-        "stac_extensions",
-        "properties"
+        "stac_extensions"
       ],
       "properties": {
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "enum": [
-              "pointcloud",
-              "https://schemas.stacspec.org/v1.0.0-beta.2/extensions/pointcloud/json-schema/schema.json"
-            ]
+            "const": "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json"
           }
-        },
-        "properties": {
-          "type": "object",
-          "required": [
-            "pc:count",
-            "pc:type",
-            "pc:encoding",
-            "pc:schemas"
-          ],
-          "properties": {
-            "pc:count": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "pc:type": {
-              "type": "string"
-            },
-            "pc:encoding": {
-              "type": "string"
-            },
-            "pc:schemas": {
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "$ref": "#/definitions/schema"
-              }
-            },
-            "pc:density": {
-              "type": "number",
-              "minimum": 0
-            },
-            "pc:statistics": {
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "$ref": "#/definitions/stats"
-              }
-            }
-          }
-        },
-        "patternProperties": {
-          "^(?!pc:)": {}
-        },
-        "additionalProperties": false
+        }
       }
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "pc:count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pc:type": {
+          "type": "string"
+        },
+        "pc:encoding": {
+          "type": "string"
+        },
+        "pc:schemas": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/schema"
+          }
+        },
+        "pc:density": {
+          "type": "number",
+          "minimum": 0
+        },
+        "pc:statistics": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/stats"
+          }
+        }
+      },
+      "patternProperties": {
+        "^(?!pc:)": {}
+      },
+      "additionalProperties": false
     },
     "schema": {
       "type": "object",

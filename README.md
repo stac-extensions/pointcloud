@@ -1,4 +1,4 @@
-# Point Cloud Extension
+# Point Cloud Extension Specification
 
 - **Title:** Point Cloud
 - **Identifier:** <https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json>
@@ -6,17 +6,20 @@
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @matthewhanson
-- **History**: [Prior to March 2nd, 2021](https://github.com/radiantearth/stac-spec/tree/3a83d75aec7f16ae597ee9779777a97e83ff46a4/extensions/pointcloud)
+- **History**: [Prior to March 2, 2021](https://github.com/radiantearth/stac-spec/commits/v1.0.0-rc.1/extensions/pointcloud)
 
-This document explains the Point Cloud Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC)
-specification. It adds fields to a STAC Item, to enable STAC to more fully describe point cloud datasets. The
-point clouds can come from either active or passive sensors, and data is frequently acquired using tools such as LiDAR or coincidence-matched imagery.
+This document explains the Point Cloud Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec)
+(STAC) specification. It adds fields to a STAC Item, to enable STAC to more fully describe point cloud datasets.
+The point clouds can come from either active or passive sensors, and data is frequently acquired using tools such as
+LiDAR or coincidence-matched imagery.
 
 - Examples:
   - [Example](examples/example-autzen.json)
+  - [PDAL to STAC Python script](pdal-to-stac.py)
 - [JSON Schema](json-schema/schema.json)
+- [Changelog](./CHANGELOG.md)
 
-## Item Properties fields
+## Item Properties
 
 | Field Name    | Type                              | Description |
 | ------------- | --------------------------------- | ----------- |
@@ -52,7 +55,3 @@ A sequential array of Items mapping to `pc:schemas` defines per-channel statisti
 | minimum    | number  | The minimum value of the channel. |
 | stddev     | number  | The standard deviation of the channel. |
 | variance   | number  | The variance of the channel. |
-
-## Implementations
-
-None yet, still in proposal stage.
