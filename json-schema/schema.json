@@ -102,10 +102,12 @@
           "minimum": 0
         },
         "pc:type": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "pc:encoding": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "pc:schemas": {
           "type": "array",
@@ -140,7 +142,8 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "size": {
           "type": "integer"
@@ -163,7 +166,8 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "position": {
           "type": "integer"
