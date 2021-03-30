@@ -74,11 +74,7 @@
           }
         },
         {
-          "$comment": "Remove this and the following object if this is not an extension to a Collection.",
           "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "$ref": "#/definitions/fields"
         }
       ]
     }

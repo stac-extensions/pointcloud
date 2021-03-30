@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed JSON Schema, which allowed pointcloud fields in the top-level of Collections
+
 ## [v1.0.0] - 2021-03-08
 
 Initial independent release, see [previous history](https://github.com/radiantearth/stac-spec/commits/v1.0.0-rc.1/extensions/pointcloud)
