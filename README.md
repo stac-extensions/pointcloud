@@ -4,7 +4,7 @@
 - **Identifier:** <https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json>
 - **Field Name Prefix:** pc
 - **Scope:** Item, Collection
-- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Pilot
 - **Owner**: @matthewhanson
 - **History**: [Prior to March 2, 2021](https://github.com/radiantearth/stac-spec/commits/v1.0.0-rc.1/extensions/pointcloud)
 
