@@ -57,7 +57,6 @@
     "datetime": "2013-07-17T00:00:00Z",
     "pc:count": 10653336,
     "pc:density": 0,
-    "pc:encoding": "LASzip",
     "pc:schemas": [
       {
         "name": "X",
