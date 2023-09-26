@@ -24,9 +24,7 @@
                   "$comment": "Require fields here for item properties.",
                   "required": [
                     "pc:count",
-                    "pc:type",
-                    "pc:encoding",
-                    "pc:schemas"
+                    "pc:type"
                   ]
                 },
                 {
@@ -102,10 +100,6 @@
           "minimum": 0
         },
         "pc:type": {
-          "type": "string",
-          "minLength": 1
-        },
-        "pc:encoding": {
           "type": "string",
           "minLength": 1
         },

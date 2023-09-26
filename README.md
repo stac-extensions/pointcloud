@@ -25,8 +25,7 @@ LiDAR or coincidence-matched imagery.
 | ------------- | --------------------------------- | ----------- |
 | pc:count      | integer                           | **REQUIRED.** The number of points in the Item. |
 | pc:type       | string                            | **REQUIRED.** Phenomenology type for the point cloud. Possible valid values might include `lidar`, `eopc`, `radar`, `sonar`, or `other` |
-| pc:encoding   | string                            | **REQUIRED.** Content encoding or format of the data. |
-| pc:schemas    | [[Schema Object](#schema-object)] | **REQUIRED.** A sequential array of Items that define the dimensions and their types. |
+| pc:schemas    | [[Schema Object](#schema-object)] | A sequential array of Items that define the dimensions and their types. |
 | pc:density    | number                            | Number of points per square unit area. |
 | pc:statistics | [[Stats Object](#stats-object)]   | A sequential array of Items mapping to `pc:schemas` defines per-channel statistics. |
 
@@ -66,10 +65,10 @@ for running tests are copied here for convenience.
 
 ### Running tests
 
-The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid. 
+The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid.
 To run tests locally, you'll need `npm`, which is a standard part of any [node.js installation](https://nodejs.org/en/download/).
 
-First you'll need to install everything with npm once. Just navigate to the root of this repository and on 
+First you'll need to install everything with npm once. Just navigate to the root of this repository and on
 your command line run:
 ```bash
 npm install
