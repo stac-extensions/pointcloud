@@ -73,8 +73,6 @@ except KeyError:
     properties['pc:density'] = 0
 properties['pc:count'] = j['metadata']['count']
 
-properties['pc:encoding'] = 'LASzip' if bool(j['metadata']['compressed']) else 'None'
-
 properties['datetime'] = capture_date(j)
 
 output['properties'] = properties
