@@ -13,11 +13,30 @@ This document explains the Point Cloud Extension to the [SpatioTemporal Asset Ca
 The point clouds can come from either active or passive sensors, and data is frequently acquired using tools such as
 LiDAR or coincidence-matched imagery.
 
+## Examples
+
 - Examples:
   - [Example](examples/example-autzen.json)
-  - [PDAL to STAC Python script](pdal-to-stac.py)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
+
+This repository comes with an example script,
+[pdal_to_stac.py](./examples/pdal_to_stac.py), which demonstrates how one might
+build a STAC item using [PDAL's](https://pdal.io) Python bindings.  To run the
+script, we recommend [conda](https://docs.conda.io/) or one of its alternatives.
+This package provides an environment file than can be used to build an
+environment that can run the script before running it:
+
+```shell
+conda env create -f examples/environment.yml
+conda activate stac-extensions-pointcloud
+```
+
+Then, pipe the output of the `pdal info` command to the script to print a STAC item to standard output:
+
+```shell
+pdal info --all examples/autzen_trim.laz | python examples/pdal_to_stac.py
+```
 
 ## Item Properties
 
@@ -66,16 +85,18 @@ for running tests are copied here for convenience.
 
 ### Running tests
 
-The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid. 
+The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid.
 To run tests locally, you'll need `npm`, which is a standard part of any [node.js installation](https://nodejs.org/en/download/).
 
-First you'll need to install everything with npm once. Just navigate to the root of this repository and on 
+First you'll need to install everything with npm once. Just navigate to the root of this repository and on
 your command line run:
+
 ```bash
 npm install
 ```
 
 Then to check markdown formatting and test the examples against the JSON schema, you can run:
+
 ```bash
 npm test
 ```
@@ -83,6 +104,7 @@ npm test
 This will spit out the same texts that you see online, and you can then go and fix your markdown or examples.
 
 If the tests reveal formatting problems with the examples, you can fix them with:
+
 ```bash
 npm run format-examples
 ```
