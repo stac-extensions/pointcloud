@@ -1,0 +1,9 @@
+name: stac-extensions-pointcloud
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - python-pdal=3.2.3
+  - pdal=2.5.6
+  - gdal=3.7.2
