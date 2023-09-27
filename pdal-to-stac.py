@@ -90,6 +90,7 @@ properties['datetime'] = capture_date(copc)
 
 output['properties'] = properties
 output['assets'] = assets
+output['stac_extensions'] = ['https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json']
 
 link = {'rel':'self',"href":filename}
 output['links'] = [link]
