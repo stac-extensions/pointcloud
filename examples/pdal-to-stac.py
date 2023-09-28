@@ -74,14 +74,21 @@ output['id'] = path.basename(filename)
 output['type'] = 'Feature'
 
 assets = {'data': {'href': filename}}
-#assets['thumbnail'] =
 properties = {}
 
 properties['pc:schemas'] = info['schema']['dimensions']
 properties['pc:statistics'] = stats['statistic']
 properties['title'] = "USGS 3DEP LiDAR"
-properties['item:provider'] = "USGS"
-properties['item:license'] = 'LICENSE'
+properties['providers'] = [
+      {
+        "name": "USGS",
+        "description": "United States Geological Survey",
+        "roles": [
+          "producer",
+        ],
+        "url": "https://www.usgs.gov"
+      }
+]
 properties['pc:type'] = 'lidar' # eopc, lidar, radar, sonar
 try:
     properties['pc:density'] = boundary['avg_pt_per_sq_unit']
@@ -96,10 +103,13 @@ output['assets'] = assets
 output['stac_extensions'] = ['https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json']
 output['stac_version'] = '1.0.0'
 
-link = {'rel':'self',"href":filename}
-output['links'] = [link]
-
 example_dir = Path(__file__).parent
-with open(example_dir/'example-autzen.json', 'w') as autzen_out:
+out_filename = str(example_dir/'example-autzen.json')
+
+self_link = {'rel':'self',"href":'./example-autzen.json'}
+lic_link = {'rel':'license',"href":'https://github.com/PDAL/data/blob/master/LICENSE'}
+output['links'] = [self_link, lic_link]
+
+with open(out_filename, 'w') as autzen_out:
     autzen_out.write(json.dumps(output, sort_keys=True, indent=2,
                                 separators=(',', ': ')))
