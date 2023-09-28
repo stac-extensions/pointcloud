@@ -275,7 +275,7 @@
         "name": "ScanAngleRank",
         "position": 9,
         "stddev": 8.484304657,
-        "variance": 71.98342551
+        "variance": 71.9834255
       },
       {
         "average": 126.4052859,
@@ -364,5 +364,6 @@
   "stac_extensions": [
     "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json"
   ],
+  "stac_version": "1.0.0",
   "type": "Feature"
 }

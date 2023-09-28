@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 
-# conda install -c conda-forge pdal gdal
+# conda env create -f environment.yml
+# conda activate stac-extensions-pointcloud
+# ./pdal-to-stac.py
 
 import sys
 import json
-import os
+from os import path
+from pathlib import Path
 import pdal
 
 filename = "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz"
@@ -67,7 +70,7 @@ except KeyError:
     output['geometry'] = stats['bbox']['EPSG:4326']['boundary']
 
 output['bbox'] = convertBBox(stats['bbox']['EPSG:4326']['bbox'])
-output['id'] = os.path.basename(filename)
+output['id'] = path.basename(filename)
 output['type'] = 'Feature'
 
 assets = {'data': {'href': filename}}
@@ -91,10 +94,12 @@ properties['datetime'] = capture_date(copc)
 output['properties'] = properties
 output['assets'] = assets
 output['stac_extensions'] = ['https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json']
+output['stac_version'] = '1.0.0'
 
 link = {'rel':'self',"href":filename}
 output['links'] = [link]
 
-with open('examples/example-autzen.json', 'w') as autzen_out:
+example_dir = Path(__file__).parent
+with open(example_dir/'example-autzen.json', 'w') as autzen_out:
     autzen_out.write(json.dumps(output, sort_keys=True, indent=2,
                                 separators=(',', ': ')))

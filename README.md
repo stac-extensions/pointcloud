@@ -15,7 +15,8 @@ LiDAR or coincidence-matched imagery.
 
 - Examples:
   - [Example](examples/example-autzen.json)
-  - [PDAL to STAC Python script](pdal-to-stac.py)
+  - [PDAL to STAC Python script](examples/pdal-to-stac.py)
+  - [Environment](examples/environment.yml)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -32,7 +33,7 @@ LiDAR or coincidence-matched imagery.
 ### Schema Object
 
 A sequential array of Items that define the dimensions or channels of
-the point cloud, their types, and their sizes (in full bytes).
+the point cloud, their types, and their sizes (in full **bytes**).
 
 | Field Name | Type    | Description |
 | ---------- | ------- | -------------------------- |
