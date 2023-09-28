@@ -74,14 +74,16 @@
   "id": "autzen-classified.copc.laz",
   "links": [
     {
-      "href": "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz",
+      "href": "./example-autzen.json",
       "rel": "self"
+    },
+    {
+      "href": "https://github.com/PDAL/data/blob/master/LICENSE",
+      "rel": "license"
     }
   ],
   "properties": {
     "datetime": "0001-01-02T00:00:00Z",
-    "item:license": "LICENSE",
-    "item:provider": "USGS",
     "pc:count": 10653336,
     "pc:density": 4.664071112,
     "pc:schemas": [
@@ -275,7 +277,7 @@
         "name": "ScanAngleRank",
         "position": 9,
         "stddev": 8.484304657,
-        "variance": 71.9834255
+        "variance": 71.98342551
       },
       {
         "average": 126.4052859,
@@ -359,6 +361,16 @@
       }
     ],
     "pc:type": "lidar",
+    "providers": [
+      {
+        "description": "United States Geological Survey",
+        "name": "USGS",
+        "roles": [
+          "producer"
+        ],
+        "url": "https://www.usgs.gov"
+      }
+    ],
     "title": "USGS 3DEP LiDAR"
   },
   "stac_extensions": [
