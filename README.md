@@ -26,9 +26,9 @@ LiDAR or coincidence-matched imagery.
 | ------------- | --------------------------------- | ----------- |
 | pc:count      | integer                           | **REQUIRED.** The number of points in the Item. |
 | pc:type       | string                            | **REQUIRED.** Phenomenology type for the point cloud. Possible valid values might include `lidar`, `eopc`, `radar`, `sonar`, or `other` |
-| pc:schemas    | [[Schema Object](#schema-object)] | A sequential array of Items that define the dimensions and their types. |
+| pc:schemas    | \[[Schema Object](#schema-object)\] | A sequential array of Items that define the dimensions and their types. |
 | pc:density    | number                            | Number of points per square unit area. |
-| pc:statistics | [[Stats Object](#stats-object)]   | A sequential array of Items mapping to `pc:schemas` defines per-channel statistics. |
+| pc:statistics | \[[Stats Object](#stats-object)\]   | A sequential array of Items mapping to `pc:schemas` defines per-channel statistics. |
 
 ### Schema Object
 
@@ -71,11 +71,13 @@ To run tests locally, you'll need `npm`, which is a standard part of any [node.j
 
 First you'll need to install everything with npm once. Just navigate to the root of this repository and on
 your command line run:
+
 ```bash
 npm install
 ```
 
 Then to check markdown formatting and test the examples against the JSON schema, you can run:
+
 ```bash
 npm test
 ```
@@ -83,6 +85,7 @@ npm test
 This will spit out the same texts that you see online, and you can then go and fix your markdown or examples.
 
 If the tests reveal formatting problems with the examples, you can fix them with:
+
 ```bash
 npm run format-examples
 ```
