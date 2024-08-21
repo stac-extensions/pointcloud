@@ -1,0 +1,130 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/pointcloud/v2.0.0/schema.json"
+  ],
+  "id": "example-colleciton",
+  "description": "An example collection to demonstrate use of item assets",
+  "license": "other",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -123.075535,
+          44.04971459,
+          406.14,
+          -123.0619527,
+          44.06277605,
+          615.26
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "links": [],
+  "item_assets": {
+    "data": {
+      "pc:schemas": [
+        {
+          "name": "X",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Y",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Z",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Intensity",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "ReturnNumber",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "NumberOfReturns",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ScanDirectionFlag",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "EdgeOfFlightLine",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "Classification",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ScanAngleRank",
+          "size": 4,
+          "type": "floating"
+        },
+        {
+          "name": "UserData",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "PointSourceId",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "GpsTime",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "ScanChannel",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ClassFlags",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "Red",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "Green",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "Blue",
+          "size": 2,
+          "type": "unsigned"
+        }
+      ],
+      "pc:type": "lidar"
+    }
+  }
+}
