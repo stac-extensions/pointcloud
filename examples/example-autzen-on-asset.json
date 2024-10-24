@@ -2,6 +2,7 @@
   "assets": {
     "data": {
       "href": "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz",
+      "type": "application/vnd.laszip+copc",
       "pc:count": 10653336,
       "pc:density": 4.664071112,
       "pc:schemas": [
