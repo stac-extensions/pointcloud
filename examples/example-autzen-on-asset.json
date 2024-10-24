@@ -1,0 +1,382 @@
+{
+  "assets": {
+    "data": {
+      "href": "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz",
+      "type": "application/vnd.laszip+copc",
+      "pc:count": 10653336,
+      "pc:density": 4.664071112,
+      "pc:schemas": [
+        {
+          "name": "X",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Y",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Z",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "Intensity",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "ReturnNumber",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "NumberOfReturns",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ScanDirectionFlag",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "EdgeOfFlightLine",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "Classification",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ScanAngleRank",
+          "size": 4,
+          "type": "floating"
+        },
+        {
+          "name": "UserData",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "PointSourceId",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "GpsTime",
+          "size": 8,
+          "type": "floating"
+        },
+        {
+          "name": "ScanChannel",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "ClassFlags",
+          "size": 1,
+          "type": "unsigned"
+        },
+        {
+          "name": "Red",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "Green",
+          "size": 2,
+          "type": "unsigned"
+        },
+        {
+          "name": "Blue",
+          "size": 2,
+          "type": "unsigned"
+        }
+      ],
+      "pc:statistics": [
+        {
+          "average": 637294.1783,
+          "count": 10653336,
+          "maximum": 639003.73,
+          "minimum": 635577.79,
+          "name": "X",
+          "position": 0,
+          "stddev": 948.0423248,
+          "variance": 898784.2496
+        },
+        {
+          "average": 851247.6953,
+          "count": 10653336,
+          "maximum": 853537.66,
+          "minimum": 848882.15,
+          "name": "Y",
+          "position": 1,
+          "stddev": 1296.496683,
+          "variance": 1680903.65
+        },
+        {
+          "average": 434.1025002,
+          "count": 10653336,
+          "maximum": 615.26,
+          "minimum": 406.14,
+          "name": "Z",
+          "position": 2,
+          "stddev": 24.67860061,
+          "variance": 609.033328
+        },
+        {
+          "average": 19749.74032,
+          "count": 10653336,
+          "maximum": 65024,
+          "minimum": 0,
+          "name": "Intensity",
+          "position": 3,
+          "stddev": 16031.7912,
+          "variance": 257018329
+        },
+        {
+          "average": 1.17801438,
+          "count": 10653336,
+          "maximum": 4,
+          "minimum": 1,
+          "name": "ReturnNumber",
+          "position": 4,
+          "stddev": 0.4653415116,
+          "variance": 0.2165427224
+        },
+        {
+          "average": 1.358579791,
+          "count": 10653336,
+          "maximum": 4,
+          "minimum": 1,
+          "name": "NumberOfReturns",
+          "position": 5,
+          "stddev": 0.6656062384,
+          "variance": 0.4430316645
+        },
+        {
+          "average": 0.4989654884,
+          "count": 10653336,
+          "maximum": 1,
+          "minimum": 0,
+          "name": "ScanDirectionFlag",
+          "position": 6,
+          "stddev": 0.4999989533,
+          "variance": 0.2499989533
+        },
+        {
+          "average": 0,
+          "count": 10653336,
+          "maximum": 0,
+          "minimum": 0,
+          "name": "EdgeOfFlightLine",
+          "position": 7,
+          "stddev": 0,
+          "variance": 0
+        },
+        {
+          "average": 3.225117841,
+          "count": 10653336,
+          "maximum": 77,
+          "minimum": 0,
+          "name": "Classification",
+          "position": 8,
+          "stddev": 3.900433841,
+          "variance": 15.21338415
+        },
+        {
+          "average": -0.8120596266,
+          "count": 10653336,
+          "maximum": 19.99799919,
+          "minimum": -21,
+          "name": "ScanAngleRank",
+          "position": 9,
+          "stddev": 8.484304657,
+          "variance": 71.98342551
+        },
+        {
+          "average": 126.4052859,
+          "count": 10653336,
+          "maximum": 156,
+          "minimum": 115,
+          "name": "UserData",
+          "position": 10,
+          "stddev": 3.832798034,
+          "variance": 14.69034077
+        },
+        {
+          "average": 7329.903705,
+          "count": 10653336,
+          "maximum": 7334,
+          "minimum": 7326,
+          "name": "PointSourceId",
+          "position": 11,
+          "stddev": 2.149008526,
+          "variance": 4.618237646
+        },
+        {
+          "average": 27984.58978,
+          "count": 10653336,
+          "maximum": 63744,
+          "minimum": 2048,
+          "name": "Red",
+          "position": 12,
+          "stddev": 12894.81504,
+          "variance": 166276254.9
+        },
+        {
+          "average": 33420.41971,
+          "count": 10653336,
+          "maximum": 65024,
+          "minimum": 8704,
+          "name": "Green",
+          "position": 13,
+          "stddev": 10300.57025,
+          "variance": 106101747.4
+        },
+        {
+          "average": 33500.94035,
+          "count": 10653336,
+          "maximum": 63488,
+          "minimum": 18688,
+          "name": "Blue",
+          "position": 14,
+          "stddev": 8035.931367,
+          "variance": 64576192.94
+        },
+        {
+          "average": 247608.4011,
+          "count": 10653336,
+          "maximum": 249783.7031,
+          "minimum": 245369.8966,
+          "name": "GpsTime",
+          "position": 15,
+          "stddev": 1176.138454,
+          "variance": 1383301.664
+        },
+        {
+          "average": 0,
+          "count": 10653336,
+          "maximum": 0,
+          "minimum": 0,
+          "name": "ScanChannel",
+          "position": 16,
+          "stddev": 0,
+          "variance": 0
+        },
+        {
+          "average": 0.00571651922,
+          "count": 10653336,
+          "maximum": 2,
+          "minimum": 0,
+          "name": "ClassFlags",
+          "position": 17,
+          "stddev": 0.1067724727,
+          "variance": 0.01140036092
+        }
+      ],
+      "pc:type": "lidar"
+    }
+  },
+  "bbox": [
+    -123.075535,
+    44.04971459,
+    406.14,
+    -123.0619527,
+    44.06277605,
+    615.26
+  ],
+  "geometry": {
+    "coordinates": [
+      [
+        [
+          -123.0629545825049,
+          44.04938482313105
+        ],
+        [
+          -123.06181648769092,
+          44.050914907404575
+        ],
+        [
+          -123.06249957584173,
+          44.062720268425046
+        ],
+        [
+          -123.0721268140624,
+          44.062503129369155
+        ],
+        [
+          -123.07283313916145,
+          44.06291701279292
+        ],
+        [
+          -123.07523995384831,
+          44.06286258591127
+        ],
+        [
+          -123.07499706515674,
+          44.05728007061464
+        ],
+        [
+          -123.0756659740761,
+          44.05683508790114
+        ],
+        [
+          -123.07518580339425,
+          44.04975347271782
+        ],
+        [
+          -123.07277952150108,
+          44.049807898349336
+        ],
+        [
+          -123.0720733531486,
+          44.049394013909115
+        ],
+        [
+          -123.06400444297464,
+          44.049791019719
+        ],
+        [
+          -123.0629545825049,
+          44.04938482313105
+        ]
+      ]
+    ],
+    "type": "Polygon"
+  },
+  "id": "autzen-classified.copc.laz",
+  "links": [
+    {
+      "href": "./example-autzen.json",
+      "rel": "self"
+    },
+    {
+      "href": "https://github.com/PDAL/data/blob/master/LICENSE",
+      "rel": "license"
+    }
+  ],
+  "properties": {
+    "datetime": "0001-01-02T00:00:00Z",
+    "providers": [
+      {
+        "description": "United States Geological Survey",
+        "name": "USGS",
+        "roles": [
+          "producer"
+        ],
+        "url": "https://www.usgs.gov"
+      }
+    ],
+    "title": "USGS 3DEP LiDAR"
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/pointcloud/v2.0.0/schema.json"
+  ],
+  "stac_version": "1.0.0",
+  "type": "Feature"
+}

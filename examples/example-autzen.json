@@ -1,7 +1,8 @@
 {
   "assets": {
     "data": {
-      "href": "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz"
+      "href": "https://github.com/PDAL/data/raw/master/autzen/autzen-classified.copc.laz",
+      "type": "application/vnd.laszip+copc"
     }
   },
   "bbox": [
@@ -374,7 +375,7 @@
     "title": "USGS 3DEP LiDAR"
   },
   "stac_extensions": [
-    "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/pointcloud/v2.0.0/schema.json"
   ],
   "stac_version": "1.0.0",
   "type": "Feature"

@@ -1,93 +1,145 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/pointcloud/v2.0.0/schema.json#",
   "title": "Point Cloud Extension",
-  "description": "STAC Point Cloud Extension for STAC Items and STAC Collections.",
-  "oneOf": [
+  "description": "STAC Point Cloud Extension for STAC Items and Collections.",
+  "type": "object",
+  "required": [
+    "stac_extensions",
+    "type"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/pointcloud/v2.0.0/schema.json"
+      }
+    }
+  },
+  "allOf": [
     {
-      "$comment": "This is the schema for STAC Items.",
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
+      "$comment": "Item",
+      "if": {
+        "properties": {
+          "type": {
+            "const": "Feature"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          {
             "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for item properties.",
-                  "required": [
-                    "pc:count",
-                    "pc:type"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
+              "properties": {
                 "$ref": "#/definitions/fields"
               }
             }
+          },
+          {
+            "$ref": "#/definitions/validate_assets"
           }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ]
+        ],
+        "anyOf": [
+          {
+            "required": [
+              "properties"
+            ],
+            "properties": {
+              "properties": {
+                "$ref": "#/definitions/require_fields"
+              }
+            }
+          },
+          {
+            "$ref": "#/definitions/require_assets"
+          }
+        ]
+      }
     },
     {
-      "$comment": "This is the schema for STAC Collections.",
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            },
-            "item_assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
+      "$comment": "Collections",
+      "if": {
+        "properties": {
+          "type": {
+            "const": "Collection"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/validate_assets"
+          },
+          {
+            "properties": {
+              "item_assets": {
+                "additionalProperties": {
+                  "$ref": "#/definitions/fields"
+                }
               }
             }
           }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ]
+        ],
+        "anyOf": [
+          {
+            "$ref": "#/definitions/require_assets"
+          },
+          {
+            "required": [
+              "item_assets"
+            ],
+            "properties": {
+              "item_assets": {
+                "$ref": "#/definitions/asset_contains"
+              }
+            }
+          },
+          {
+            "required": [
+              "summaries"
+            ],
+            "properties": {
+              "summaries": {
+                "$ref": "#/definitions/require_fields"
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "definitions": {
-    "stac_extensions": {
-      "type": "object",
+    "require_fields": {
       "required": [
-        "stac_extensions"
+        "pc:count",
+        "pc:type"
+      ]
+    },
+    "require_assets": {
+      "required": [
+        "assets"
       ],
       "properties": {
-        "stac_extensions": {
-          "type": "array",
-          "contains": {
-            "const": "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json"
+        "assets": {
+          "$ref": "#/definitions/asset_contains"
+        }
+      }
+    },
+    "validate_assets": {
+      "properties": {
+        "assets": {
+          "additionalProperties": {
+            "$ref": "#/definitions/fields"
+          }
+        }
+      }
+    },
+    "asset_contains": {
+      "type": "object",
+      "not": {
+        "additionalProperties": {
+          "not": {
+            "$ref": "#/definitions/fields"
           }
         }
       }
@@ -96,12 +148,10 @@
       "type": "object",
       "properties": {
         "pc:count": {
-          "type": "integer",
-          "minimum": 0
+          "$ref": "#/definitions/pc:count"
         },
         "pc:type": {
-          "type": "string",
-          "minLength": 1
+          "$ref": "#/definitions/pc:type"
         },
         "pc:schemas": {
           "type": "array",
@@ -111,8 +161,7 @@
           }
         },
         "pc:density": {
-          "type": "number",
-          "minimum": 0
+          "$ref": "#/definitions/pc:density"
         },
         "pc:statistics": {
           "type": "array",
@@ -127,7 +176,39 @@
       },
       "additionalProperties": false
     },
+    "pc:count": {
+      "title": "The number of points",
+      "type": "integer",
+      "minimum": 0
+    },
+    "pc:type": {
+      "title": "Phenomenology type for the point cloud",
+      "type": "string",
+      "minLength": 1
+    },
+    "pc:schemas": {
+      "title": "A sequential array of Items that define the dimensions and their types",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schema"
+      }
+    },
+    "pc:density": {
+      "title": "Number of points per square unit area",
+      "type": "number",
+      "minimum": 0
+    },
+    "pc:statistics": {
+      "title": "A sequential array of Items mapping to pc:schemas defines per-channel statistics",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/stats"
+      }
+    },
     "schema": {
+      "title": "A sequential array of Items that define the dimensions or channels of the point cloud, their types, and their sizes (in full bytes)",
       "type": "object",
       "required": [
         "name",
@@ -153,6 +234,7 @@
       }
     },
     "stats": {
+      "title": "A sequential array of Items mapping to pc:schemas defines per-channel statistics",
       "type": "object",
       "minProperties": 2,
       "required": [
