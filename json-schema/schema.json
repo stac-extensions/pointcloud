@@ -252,7 +252,8 @@
           "type": "number"
         },
         "count": {
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "maximum": {
           "type": "number"
